@@ -1,0 +1,1 @@
+map can only have characters as presented in the first line of the file

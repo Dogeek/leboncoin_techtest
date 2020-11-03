@@ -120,23 +120,20 @@ def find_squares(filepath):
 
     # We find all possible squares on that map, and if that square is valid
     # (no obstacles), we add it.
-    for n in range(1, max_square_size + 1):
+    for n in range(max_square_size + 1, 0, -1):
         for i, line in enumerate(map):
             for j, cell in enumerate(line):
                 if no_obstacles(map, obstacle, i, i + n, j, j + n):
                     squares.append(Square(i, j, n))
-
-    # We initialize our solution to be a square of size 0
-    # its location doesn't matter
-    solution = Square(0, 0, 0)
-
-    # Then go through every possible square, in reverse, since they
-    # are ordered from smallest to biggest
-    for square in reversed(squares):
-        if square.size >= solution.size:
-            solution = square
-        else:
+        if squares:
+            # Break early if we found squares
+            # no need to test smaller ones if we found the biggest
             break
+
+    if squares:
+        solution = squares[0]
+    else:
+        solution = Square(0, 0, 0)
 
     # Then replace the map's tokens with the full token for each cell the
     # square occupies.

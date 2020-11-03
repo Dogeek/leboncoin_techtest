@@ -19,6 +19,10 @@ def get_version():
 
 
 def main():
+    '''
+    Main function of the CLI. Creates the parser, and sends each
+    filepath to the find_squares function
+    '''
     parser = argparse.ArgumentParser(prog=__prog__)
     parser.add_argument(
         '--version', '-V', action='version',

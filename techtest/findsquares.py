@@ -30,6 +30,21 @@ def parse_metadata(line):
 
 
 def check_map_valid(metadata, map):
+    '''
+    Checks that a map is valid given its metadata
+
+    :param metadata: A string telling the program the number of lines
+    and the defining characters of the map
+    :type metadata: str
+    :param map: The map to check, a list of strings
+    :type map: list[str]
+    :raises MapError: If the map is empty
+    :raises MapError: if the map's length is not in
+    accordance with the metadata
+    :raises MapError: If some lines of the map are longer than others
+    :raises MapError: If the map has some characters that are not declared in
+    the metadata
+    '''
     n_lines, empty, obstacle, full = parse_metadata(metadata)
     if not map or not n_lines:
         raise MapError('map needs at least one line of at least one cell')

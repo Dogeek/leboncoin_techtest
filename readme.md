@@ -1,6 +1,5 @@
 # Technical test for leboncoin.fr
 
-
 ## Goal
 
 Find the largest square on a map that avoids obstacles.
@@ -19,7 +18,6 @@ Whenever several solutions are found, the represented square should be the furth
 
 - Every line should have the same length
 - There is at least one line of at least one cell
-- each line ends with a newline (`\n`)
 - The map can only have characters as presented on the first line of the file
 
 Whenever an invalid map is passed into the program, show the following on sys.stderr : `map error` and continue on

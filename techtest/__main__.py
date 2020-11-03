@@ -1,4 +1,5 @@
 import argparse
+import sys
 
 from techtest import (
     __prog__, __version__, __author__,
@@ -7,6 +8,13 @@ from techtest import (
 
 
 def get_version():
+    '''
+    Returns the program name, its author and the version number
+    in a formatted string
+
+    :return: A string with the program name, its author, and the version number
+    :rtype: str
+    '''
     return f'{__prog__} by {__author__} v{__version__}'
 
 
@@ -25,7 +33,7 @@ def main():
         try:
             print('\n'.join(find_squares(filepath)))
         except MapError as e:
-            print(str(e))
+            print(str(e), file=sys.stderr)
 
 
 if __name__ == '__main__':
